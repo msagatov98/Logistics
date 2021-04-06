@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            app:showAsAction="never"
+            android:id="@+id/nav_profile"
+            android:title="Профиль" />
+        <item
+            app:showAsAction="never"
+            android:title="Карта"
+            android:id="@+id/nav_map"/>
+    </group>
+
+</menu>

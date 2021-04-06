@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "130580185586",
+    "project_id": "logistics-1d671",
+    "storage_bucket": "logistics-1d671.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:130580185586:android:f876a63d0d07fcf762eb6b",
+        "android_client_info": {
+          "package_name": "kz.logistics"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "130580185586-rmoov0qgs325q692vcqas9ejjlg2t3kv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCENBAbe5uc-xoj87Ghtnetv6zNkKctUIc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "130580185586-rmoov0qgs325q692vcqas9ejjlg2t3kv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

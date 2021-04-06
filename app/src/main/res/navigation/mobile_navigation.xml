@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@+id/nav_map">
+
+    <fragment
+        android:label="@string/title_activity_maps"
+        android:id="@+id/nav_map"
+        tools:layout="@layout/map_page"
+        android:name="kz.logistics.MapFragment">
+    </fragment>
+
+    <fragment
+        android:label="Профиль"
+        android:id="@+id/nav_profile"
+        tools:layout="@layout/profile_page"
+        android:name="kz.logistics.ProfileFragment" />
+</navigation>
