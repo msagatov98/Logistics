@@ -1,23 +1,28 @@
 package kz.logistics
 
+import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import kotlinx.android.synthetic.main.profile_page.view.*
+import kz.logistics.Util.viewBinding
+import kz.logistics.databinding.ProfilePageBinding
 
-class ProfileFragment: Fragment() {
+class ProfileFragment : Fragment(R.layout.profile_page) {
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        val view = inflater.inflate(R.layout.profile_page, container, false)
+    private val binding by viewBinding(ProfilePageBinding::bind)
 
-        view.profile_email_text.text = (activity?.application as App).mAuth.currentUser?.email
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-        return view
+        val app = activity?.application as App
+
+        binding.run {
+            profileEmailText.text = app.mAuth.currentUser?.email
+            exitButton.setOnClickListener {
+                app.mAuth.signOut()
+                startActivity(Intent(requireContext(), LoginActivity::class.java))
+                requireActivity().finish()
+            }
+        }
     }
 }

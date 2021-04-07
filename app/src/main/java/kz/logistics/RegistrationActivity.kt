@@ -24,11 +24,26 @@ class RegistrationActivity : AppCompatActivity(), BaseActivity {
 
         override fun afterTextChanged(s: Editable?) {
             binding.run {
-                val isEmailNotEmpty = inputEmail.text.isNotEmpty()
-                val isPasswordNotEmpty = passwordInputEditText.text.toString().isNotEmpty()
-                val isConfirmPasswordNotEmpty = confirmPasswordInputEditText.text.toString().isNotEmpty()
+                val email = inputEmail.text
+                val password = passwordInputEditText.text.toString()
+                val confirmPassword = confirmPasswordInputEditText.text.toString()
 
-                registrationButton.isEnabled = isEmailNotEmpty && isPasswordNotEmpty && isConfirmPasswordNotEmpty
+                registrationButton.isEnabled = email.isNotEmpty() &&
+                        password.isNotEmpty() &&
+                        confirmPassword.isNotEmpty() &&
+                        password.length >= 6 &&
+                        confirmPassword.length >= 6 &&
+                        password == confirmPassword
+
+                if (password != confirmPassword) {
+                    isNotSameText.visibility = View.VISIBLE
+                    passwordInputEditText.setBackgroundResource(R.drawable.bg_input_error_edit_text)
+                    confirmPasswordInputEditText.setBackgroundResource(R.drawable.bg_input_error_edit_text)
+                } else {
+                    isNotSameText.visibility = View.INVISIBLE
+                    passwordInputEditText.setBackgroundResource(R.drawable.bg_input_edit_text)
+                    confirmPasswordInputEditText.setBackgroundResource(R.drawable.bg_input_edit_text)
+                }
             }
         }
     }

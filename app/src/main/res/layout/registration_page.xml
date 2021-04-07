@@ -23,7 +23,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="50dp"
-        android:text="Введите ваш электронный адрес и придумайте пароль для регистрации"
+        android:text="Введите ваш электронный адрес и пароль для регистрации. Пароль не меньше 6 символов"
         android:gravity="center"
         app:layout_constraintBottom_toTopOf="@id/input_email" />
 
@@ -87,12 +87,25 @@
             android:paddingEnd="16dp" />
     </com.google.android.material.textfield.TextInputLayout>
 
+    <TextView
+        android:id="@+id/is_not_same_text"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:gravity="center_vertical"
+        android:text="Пароли не совдают"
+        android:textColor="#FF4500"
+        android:textSize="16sp"
+        android:visibility="invisible"
+        app:layout_constraintTop_toBottomOf="@id/confirm_password_input_layout" />
+
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/registration_button"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="30dp"
         android:background="@drawable/bg_button"
         android:enabled="false"

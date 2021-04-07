@@ -5,7 +5,7 @@
     app:startDestination="@+id/nav_map">
 
     <fragment
-        android:label="@string/title_activity_maps"
+        android:label="Карта"
         android:id="@+id/nav_map"
         tools:layout="@layout/map_page"
         android:name="kz.logistics.MapFragment">
@@ -16,4 +16,10 @@
         android:id="@+id/nav_profile"
         tools:layout="@layout/profile_page"
         android:name="kz.logistics.ProfileFragment" />
+
+    <fragment
+        android:label="Грузы"
+        android:id="@+id/nav_truck"
+        tools:layout="@layout/truck_page"
+        android:name="kz.logistics.TruckFragment" />
 </navigation>

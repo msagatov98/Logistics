@@ -1,0 +1,3 @@
+[submodule "android-maps-directions"]
+	path = android-maps-directions
+	url = https://github.com/Vysh01/android-maps-directions.git

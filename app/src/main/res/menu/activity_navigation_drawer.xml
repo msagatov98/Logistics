@@ -6,13 +6,20 @@
 
     <group android:checkableBehavior="single">
         <item
+            android:icon="@drawable/ic_account"
             app:showAsAction="never"
             android:id="@+id/nav_profile"
             android:title="Профиль" />
         <item
+            android:id="@+id/nav_map"
             app:showAsAction="never"
             android:title="Карта"
-            android:id="@+id/nav_map"/>
+            android:icon="@drawable/ic_map" />
+        <item
+            android:id="@+id/nav_truck"
+            android:icon="@drawable/ic_truck"
+            android:title="Грузы"
+            app:showAsAction="never" />
     </group>
 
 </menu>
