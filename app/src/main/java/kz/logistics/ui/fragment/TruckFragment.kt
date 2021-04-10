@@ -1,4 +1,4 @@
-package kz.logistics
+package kz.logistics.ui.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,28 +11,32 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import kz.logistics.Util.DESTINATION_CITY
-import kz.logistics.Util.ORIGIN_CITY
-import kz.logistics.Util.viewBinding
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
+import kz.logistics.App
+import kz.logistics.R
+import kz.logistics.util.Util.DESTINATION_CITY
+import kz.logistics.util.Util.ORIGIN_CITY
+import kz.logistics.util.Util.viewBinding
 import kz.logistics.databinding.TruckPageBinding
 import kz.logistics.databinding.TruckViewHolderBinding
+import kz.logistics.model.Load
+import kz.logistics.util.Util.showToast
 
 
 class TruckFragment : Fragment(R.layout.truck_page) {
 
+    private val app by lazy(::initApp)
+
     private val binding by viewBinding(TruckPageBinding::bind)
 
-    private val trucksList = mutableListOf(
-        Truck(1, "Almaty", "Nur-Sultan", "100.000", "Шоколад", 2.0, 1.3, "21.01.2019"),
-        Truck(1, "Almaty", "Shymkent", "100.000", "Шоколад", 2.0, 1.3, "21.01.2019"),
-        Truck(1, "Almaty", "Taldyqorgan", "100.000", "Шоколад", 2.0, 1.3, "21.01.2019"),
-        Truck(1, "Almaty", "Taraz", "100.000", "Шоколад", 2.0, 1.3, "21.01.2019"),
-        Truck(1, "Almaty", "Aqtobe", "100.000", "Шоколад", 2.0, 1.3, "21.01.2019")
-    )
+    private val trucksList = mutableListOf<Load>()
+
+    private lateinit var loadAdapter: TruckAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         val navController = Navigation.findNavController(view)
 
         val listener = object : OnTruckClickListener {
@@ -45,18 +49,41 @@ class TruckFragment : Fragment(R.layout.truck_page) {
             }
         }
 
+        loadAdapter = TruckAdapter(listener)
+
         binding.run {
             trucks.apply {
                 layoutManager = LinearLayoutManager(context)
-                adapter = TruckAdapter(listener).apply {
-                    submitList(trucksList)
-                }
+                adapter = loadAdapter
+            }
+
+            addTruckButton.setOnClickListener {
+                navController.navigate(R.id.nav_add_truck)
             }
         }
+
+        getDataFromFirebase()
     }
+
+    private fun getDataFromFirebase() {
+        app.mDatabase.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                trucksList.clear()
+                snapshot.children.forEach {
+                    it.getValue(Load::class.java)?.let { it1 -> trucksList.add(it1) }
+                }
+                loadAdapter.submitList(trucksList)
+            }
+
+            override fun onCancelled(error: DatabaseError) = Unit
+
+        })
+    }
+
+    private fun initApp() : App = requireActivity().application as App
 }
 
-class TruckAdapter(val listener: OnTruckClickListener) : ListAdapter<Truck, TruckAdapter.TruckViewHolder>(
+class TruckAdapter(val listener: OnTruckClickListener) : ListAdapter<Load, TruckAdapter.TruckViewHolder>(
     TruckItemCallback()
 ) {
 
@@ -73,29 +100,31 @@ class TruckAdapter(val listener: OnTruckClickListener) : ListAdapter<Truck, Truc
     inner class TruckViewHolder(private val binding: TruckViewHolderBinding) :
             RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(truck: Truck) {
+        fun bind(truck: Load) {
             binding.run {
-                addressFromText.text = truck.addressFrom
-                addressToText.text = truck.addressTo
-                loadingDateText.text = "Погрузка: ${truck.createAt}"
+                addressFromText.text = truck.originAddress
+                addressToText.text = truck.destAddress
+                loadingDateText.text = "Погрузка: ${truck.loadingDate}"
                 priceText.text = "Цена: ${truck.price}"
-                typeText.text = truck.type
+                typeText.text = truck.good
                 weightText.text = truck.weight.toString() + " t."
                 areaText.text = truck.area.toString() + " m3"
 
                 root.setOnClickListener {
-                    listener.onTruckClick(truck.addressFrom, truck.addressTo)
+                    listener.onTruckClick(truck.originAddress, truck.destAddress)
                 }
+
+
             }
         }
     }
 }
 
-class TruckItemCallback : DiffUtil.ItemCallback<Truck>() {
-    override fun areItemsTheSame(oldItem: Truck, newItem: Truck) =
-        oldItem.id == newItem.id
+class TruckItemCallback : DiffUtil.ItemCallback<Load>() {
+    override fun areItemsTheSame(oldItem: Load, newItem: Load) =
+        oldItem == newItem
 
-    override fun areContentsTheSame(oldItem: Truck, newItem: Truck) =
+    override fun areContentsTheSame(oldItem: Load, newItem: Load) =
         oldItem == newItem
 }
 

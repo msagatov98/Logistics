@@ -1,4 +1,4 @@
-package kz.logistics
+package kz.logistics.ui.activity
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,9 +6,11 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import kz.logistics.Util.hideKeyboard
-import kz.logistics.Util.showToast
-import kz.logistics.Util.viewBinding
+import kz.logistics.BaseActivity
+import kz.logistics.R
+import kz.logistics.util.Util.hideKeyboard
+import kz.logistics.util.Util.showToast
+import kz.logistics.util.Util.viewBinding
 import kz.logistics.databinding.RegistrationPageBinding
 
 class RegistrationActivity : AppCompatActivity(), BaseActivity {

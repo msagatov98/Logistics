@@ -1,4 +1,4 @@
-package kz.logistics
+package kz.logistics.util
 
 import android.app.Activity
 import android.content.Context
