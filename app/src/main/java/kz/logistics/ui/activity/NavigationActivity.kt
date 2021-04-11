@@ -1,4 +1,4 @@
-package kz.logistics
+package kz.logistics.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,7 +8,9 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import kotlinx.android.synthetic.main.navigation_app_bar.*
-import kz.logistics.Util.viewBinding
+import kz.logistics.BaseActivity
+import kz.logistics.R
+import kz.logistics.util.Util.viewBinding
 import kz.logistics.databinding.NavigationPageBinding
 
 class NavigationActivity : AppCompatActivity(), BaseActivity {

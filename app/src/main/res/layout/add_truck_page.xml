@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/select_address_text"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="30dp"
+            android:gravity="center_vertical"
+            android:text="Выбирите локации"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Spinner
+            android:id="@+id/origin_address_spinner"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/bg_input_edit_text"
+            app:layout_constraintEnd_toStartOf="@id/destination_address_spinner"
+            app:layout_constraintStart_toStartOf="@id/select_address_text"
+            app:layout_constraintTop_toBottomOf="@id/select_address_text" />
+
+        <Spinner
+            android:id="@+id/destination_address_spinner"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/bg_input_edit_text"
+            app:layout_constraintEnd_toEndOf="@id/select_address_text"
+            app:layout_constraintStart_toEndOf="@id/origin_address_spinner"
+            app:layout_constraintTop_toBottomOf="@id/select_address_text" />
+
+        <TextView
+            android:id="@+id/inter_loading_date_text"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="30dp"
+            android:gravity="center_vertical"
+            android:text="Введите дату погрузки"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/destination_address_spinner" />
+
+        <EditText
+            android:id="@+id/loading_date_input"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:background="@drawable/bg_input_edit_text"
+            android:hint="дд.мм.гггг"
+            android:inputType="date"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            app:layout_constraintEnd_toEndOf="@id/select_address_text"
+            app:layout_constraintStart_toStartOf="@id/select_address_text"
+            app:layout_constraintTop_toBottomOf="@id/inter_loading_date_text" />
+
+        <TextView
+            android:id="@+id/inter_price_text"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="30dp"
+            android:gravity="center_vertical"
+            android:text="Введите цену погрузки"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/loading_date_input" />
+
+        <EditText
+            android:id="@+id/price_input"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:background="@drawable/bg_input_edit_text"
+            android:inputType="number"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            app:layout_constraintEnd_toEndOf="@id/select_address_text"
+            app:layout_constraintStart_toStartOf="@id/select_address_text"
+            app:layout_constraintTop_toBottomOf="@id/inter_price_text" />
+
+        <TextView
+            android:id="@+id/inter_load_type_text"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="30dp"
+            android:gravity="center_vertical"
+            android:text="Введите товар"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/price_input" />
+
+        <EditText
+            android:id="@+id/load_input"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:background="@drawable/bg_input_edit_text"
+            android:drawableStart="@drawable/ic_box"
+            android:inputType="text"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            app:layout_constraintEnd_toEndOf="@id/select_address_text"
+            app:layout_constraintStart_toStartOf="@id/select_address_text"
+            app:layout_constraintTop_toBottomOf="@id/inter_load_type_text" />
+
+        <TextView
+            android:id="@+id/enter_weight_and_area_text"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="30dp"
+            android:gravity="center_vertical"
+            android:text="Введите вес и обьем груза"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/load_input" />
+
+        <EditText
+            android:id="@+id/weight_input"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:inputType="number"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/bg_input_edit_text"
+            android:drawableStart="@drawable/ic_scale"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            app:layout_constraintEnd_toStartOf="@id/area_input"
+            app:layout_constraintStart_toStartOf="@id/select_address_text"
+            app:layout_constraintTop_toBottomOf="@id/enter_weight_and_area_text" />
+
+        <EditText
+            android:id="@+id/area_input"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/bg_input_edit_text"
+            android:drawableStart="@drawable/ic_area"
+            android:inputType="number"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            app:layout_constraintEnd_toEndOf="@id/select_address_text"
+            app:layout_constraintStart_toEndOf="@id/weight_input"
+            app:layout_constraintTop_toBottomOf="@id/enter_weight_and_area_text" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:enabled="false"
+            android:id="@+id/add_load_button"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/bg_button"
+            android:inputType="number"
+            android:text="Добавить груз"
+            android:textAllCaps="false"
+            android:textColor="@color/button_text"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/area_input" />
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

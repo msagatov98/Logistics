@@ -1,8 +1,9 @@
-package kz.logistics
+package kz.logistics.ui.activity
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import kz.logistics.BaseActivity
 
 class SplashActivity : AppCompatActivity(), BaseActivity {
 

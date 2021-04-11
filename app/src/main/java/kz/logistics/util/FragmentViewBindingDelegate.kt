@@ -1,4 +1,4 @@
-package kz.logistics
+package kz.logistics.util
 
 import android.view.View
 import androidx.fragment.app.Fragment

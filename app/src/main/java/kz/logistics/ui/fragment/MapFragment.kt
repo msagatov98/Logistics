@@ -1,6 +1,5 @@
-package kz.logistics
+package kz.logistics.ui.fragment
 
-import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import androidx.core.content.ContextCompat
@@ -13,12 +12,11 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.gms.maps.model.Polyline
 import com.google.android.gms.maps.model.PolylineOptions
-import kz.logistics.Util.DESTINATION_CITY
-import kz.logistics.Util.ORIGIN_CITY
-import kz.logistics.Util.showToast
-import kz.logistics.Util.viewBinding
+import kz.logistics.R
 import kz.logistics.databinding.MapPageBinding
-
+import kz.logistics.util.Util.DESTINATION_CITY
+import kz.logistics.util.Util.ORIGIN_CITY
+import kz.logistics.util.Util.viewBinding
 
 class MapFragment : Fragment(R.layout.map_page), OnMapReadyCallback {
 
@@ -41,10 +39,16 @@ class MapFragment : Fragment(R.layout.map_page), OnMapReadyCallback {
 
         firstPlace = when (origin) {
             "Almaty" -> MarkerOptions().position(LatLng(43.45044, 76.73848))
+            "Nur-Sultan" -> MarkerOptions().position(LatLng(51.30796, 71.61213))
+            "Taldyqorgan" -> MarkerOptions().position(LatLng(45.11741, 78.31902))
+            "Shymkent" -> MarkerOptions().position(LatLng(42.45589, 69.68556))
+            "Taraz" -> MarkerOptions().position(LatLng(43.97886, 71.35369))
+            "Aqtobe" -> MarkerOptions().position(LatLng(50.40362, 57.08065))
             else -> null
         }
 
         secondPlace = when (dest) {
+            "Almaty" -> MarkerOptions().position(LatLng(43.45044, 76.73848))
             "Nur-Sultan" -> MarkerOptions().position(LatLng(51.30796, 71.61213))
             "Taldyqorgan" -> MarkerOptions().position(LatLng(45.11741, 78.31902))
             "Shymkent" -> MarkerOptions().position(LatLng(42.45589, 69.68556))
@@ -74,4 +78,5 @@ class MapFragment : Fragment(R.layout.map_page), OnMapReadyCallback {
 
         mMap.moveCamera(CameraUpdateFactory.newLatLng(almaty))
     }
+
 }
