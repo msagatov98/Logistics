@@ -3,11 +3,26 @@
     <string name="title_activity_maps">Map</string>
 
     <string-array name="cities">
-        <item>Almaty</item>
-        <item>Nur-Sultan</item>
-        <item>Shymkent</item>
-        <item>Taldyqorgan</item>
-        <item>Taraz</item>
-        <item>Aqtobe</item>
+        <item>Алматы</item>
+        <item>Нур-Султан</item>
+        <item>Шымкент</item>
+        <item>Актобе</item>
+        <item>Караганда</item>
+        <item>Тараз</item>
+        <item>Павлодар</item>
+        <item>Усть-Каменогорск</item>
+        <item>Семей</item>
+        <item>Атырау</item>
+        <item>Костанай</item>
+        <item>Кызылорда</item>
+        <item>Уральск</item>
+        <item>Петропавловск</item>
+        <item>Актау</item>
+        <item>Темиртау</item>
+        <item>Туркестан</item>
+        <item>Кокшетау</item>
+        <item>Талдыкорган</item>
+        <item>Экибастуз</item>
+        <item>Рудный</item>
     </string-array>
 </resources>
