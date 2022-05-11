@@ -3,6 +3,7 @@ package kz.logistics.ui.fragment
 import android.graphics.Color
 import android.os.AsyncTask
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -43,6 +44,9 @@ class MapFragment : Fragment(R.layout.map_page), OnMapReadyCallback {
 
         val origin = arguments?.getString(ORIGIN_CITY)
         val dest = arguments?.getString(DESTINATION_CITY)
+
+        Log.v("qwer", origin.orEmpty())
+        Log.v("qwer", dest.orEmpty())
 
         firstPlace = when (origin) {
             "Алматы" ->             MarkerOptions().position(LatLng(43.22411, 76.85147))
