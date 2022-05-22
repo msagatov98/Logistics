@@ -111,6 +111,7 @@
             android:layout_height="50dp"
             android:background="@drawable/bg_input_edit_text"
             android:drawableStart="@drawable/ic_box"
+            android:drawablePadding="8dp"
             android:inputType="text"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
@@ -135,10 +136,11 @@
             android:id="@+id/weight_input"
             android:layout_width="0dp"
             android:layout_height="50dp"
-            android:inputType="number"
             android:layout_marginEnd="10dp"
             android:background="@drawable/bg_input_edit_text"
             android:drawableStart="@drawable/ic_scale"
+            android:drawablePadding="8dp"
+            android:inputType="number"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
             app:layout_constraintEnd_toStartOf="@id/area_input"
@@ -152,6 +154,7 @@
             android:layout_marginStart="10dp"
             android:background="@drawable/bg_input_edit_text"
             android:drawableStart="@drawable/ic_area"
+            android:drawablePadding="8dp"
             android:inputType="number"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
@@ -160,7 +163,6 @@
             app:layout_constraintTop_toBottomOf="@id/enter_weight_and_area_text" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:enabled="false"
             android:id="@+id/add_load_button"
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -169,6 +171,7 @@
             android:layout_marginEnd="30dp"
             android:layout_marginBottom="30dp"
             android:background="@drawable/bg_button"
+            android:enabled="false"
             android:inputType="number"
             android:text="Добавить груз"
             android:textAllCaps="false"
@@ -181,10 +184,10 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:visibility="gone"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

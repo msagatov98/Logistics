@@ -29,8 +29,8 @@ class RegistrationActivity : AppCompatActivity(R.layout.registration_page) {
         collect(viewModel.enabled, registrationButton::setEnabled)
         collect(viewModel.loading, progressLayout::isVisible::set)
         collect(viewModel.isPasswordSame) { isPasswordSame ->
-            isNotSameText.isVisible = isPasswordSame
-            if (isPasswordSame) {
+            isNotSameText.isVisible = !isPasswordSame
+            if (!isPasswordSame) {
                 passwordInputEditText.setBackgroundResource(R.drawable.bg_input_error_edit_text)
                 confirmPasswordInputEditText.setBackgroundResource(R.drawable.bg_input_error_edit_text)
             } else {

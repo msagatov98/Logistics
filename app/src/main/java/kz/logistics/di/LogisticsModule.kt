@@ -33,11 +33,17 @@ val logisticsModule = module {
     }
 
     viewModel {
-        AddTruckViewModel(firebaseDatabase = get())
+        AddTruckViewModel(
+            firebaseAuth = get(),
+            firebaseDatabase = get()
+        )
     }
 
     viewModel {
-        TruckListViewModel(firebaseDatabase = get())
+        TruckListViewModel(
+            firebaseAuth = get(),
+            firebaseDatabase = get()
+        )
     }
     
 }

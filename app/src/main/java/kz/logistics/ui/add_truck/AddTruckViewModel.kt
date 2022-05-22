@@ -2,25 +2,30 @@ package kz.logistics.ui.add_truck
 
 import android.text.Editable
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.launch
+import kz.logistics.model.Load
+import java.util.*
 
 class AddTruckViewModel(
+    private val firebaseAuth: FirebaseAuth,
     private val firebaseDatabase: DatabaseReference
 ) : ViewModel() {
 
-    val date = MutableStateFlow("")
-    val area = MutableStateFlow("")
-    val good = MutableStateFlow("")
-    val price = MutableStateFlow("")
-    val weight = MutableStateFlow("")
-    val origin = MutableStateFlow("")
-    val destination = MutableStateFlow("")
+    private val date = MutableStateFlow("")
+    private val area = MutableStateFlow("")
+    private val good = MutableStateFlow("")
+    private val price = MutableStateFlow("")
+    private val weight = MutableStateFlow("")
+    private val origin = MutableStateFlow("")
+    private val destination = MutableStateFlow("")
 
     val event = MutableSharedFlow<AddTruckAction>()
-
     val loading = MutableStateFlow(false)
     val enabled = combine(
         date,
@@ -39,31 +44,51 @@ class AddTruckViewModel(
     }
 
     fun inputDate(value: Editable?) {
-        price.value = value.toString()
+        date.value = value.toString()
     }
 
     fun inputWeight(value: Editable?) {
-        price.value = value.toString()
+        weight.value = value.toString()
     }
 
     fun inputArea(value: Editable?) {
-        price.value = value.toString()
+        area.value = value.toString()
     }
 
     fun inputLoad(value: Editable?) {
-        price.value = value.toString()
+        good.value = value.toString()
     }
 
     fun selectOrigin(value: String) {
-        price.value = value
+        origin.value = value
     }
 
     fun selectDestination(value: String) {
-        price.value = value
+        destination.value = value
     }
 
     fun onAddLoadClicked() {
+        loading.value = true
+        val load = Load(
+            originAddress = origin.value,
+            destAddress = destination.value,
+            loadingDate = date.value,
+            price = price.value,
+            good = good.value,
+            weight = weight.value,
+            area = area.value
+        )
 
+        val random = Random().nextInt(9999999).toString()
+        firebaseDatabase.child(firebaseAuth.uid.orEmpty()).child(random).setValue(load)
+            .addOnCompleteListener {
+                loading.value = false
+                if (it.isSuccessful) {
+                    viewModelScope.launch { event.emit(AddTruckAction.Success) }
+                } else {
+                    viewModelScope.launch { event.emit(AddTruckAction.Failure) }
+                }
+            }
     }
 }
 

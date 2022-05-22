@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import by.kirich1409.viewbindingdelegate.viewBinding
 import kz.logistics.R
@@ -17,21 +18,25 @@ class TruckFragment : Fragment(R.layout.truck_page) {
 
     private val binding by viewBinding(TruckPageBinding::bind)
     private val viewModel by viewModel<TruckListViewModel>()
+    private var navController: NavController? = null
 
-    private val loadAdapter = TruckAdapter(
-        onTruckClicked = { origin, dest ->
-            viewModel.onTruckClicked(origin, dest)
-        }
-    )
+    private val loadAdapter by lazy {
+        TruckAdapter(
+            onDeleteClicked = (viewModel::onDeleteClicked),
+            onTruckClicked = { origin, dest ->
+                viewModel.onTruckClicked(origin, dest)
+            }
+        )
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        navController = Navigation.findNavController(view)
         collectViewModel()
         setupView()
     }
 
     private fun collectViewModel() = with(binding) {
-        val navController = Navigation.findNavController(root)
         collect(viewModel.trucks, loadAdapter::submitList)
         collect(viewModel.trucksEvent) {
             when (it) {
@@ -40,17 +45,16 @@ class TruckFragment : Fragment(R.layout.truck_page) {
                         ORIGIN_CITY to it.origin,
                         DESTINATION_CITY to it.dest
                     )
-                    navController.navigate(R.id.nav_map, bundle)
+                    navController?.navigate(R.id.nav_map, bundle)
                 }
             }
         }
     }
 
     private fun setupView() = with(binding) {
-        val navController = Navigation.findNavController(root)
         trucks.adapter = loadAdapter
         addTruckButton.setOnClickListener {
-            navController.navigate(R.id.nav_add_truck)
+            navController?.navigate(R.id.nav_add_truck)
         }
     }
 }

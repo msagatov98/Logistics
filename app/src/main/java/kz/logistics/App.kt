@@ -9,9 +9,6 @@ import org.koin.core.context.startKoin
 
 class App : Application() {
 
-    lateinit var mAuth: FirebaseAuth
-    lateinit var mDatabase: DatabaseReference
-
     override fun onCreate() {
         super.onCreate()
         initKoin()

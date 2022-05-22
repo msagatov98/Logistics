@@ -31,6 +31,7 @@
         android:id="@+id/password_input_layout"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_marginHorizontal="24dp"
         app:hintEnabled="false"
         app:layout_constraintBottom_toBottomOf="parent"
