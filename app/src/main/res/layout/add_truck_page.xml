@@ -162,6 +162,36 @@
             app:layout_constraintStart_toEndOf="@id/weight_input"
             app:layout_constraintTop_toBottomOf="@id/enter_weight_and_area_text" />
 
+        <TextView
+            android:id="@+id/selectDeliverText"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="30dp"
+            android:gravity="center_vertical"
+            android:text="Выберите доставщика"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/area_input" />
+
+        <EditText
+            android:id="@+id/deliverEditText"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:background="@drawable/bg_input_edit_text"
+            android:clickable="true"
+            android:drawableStart="@drawable/ic_express_delivery"
+            android:drawablePadding="8dp"
+            android:focusable="false"
+            android:hint="Компания доставки"
+            android:inputType="text"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            app:layout_constraintEnd_toEndOf="@id/select_address_text"
+            app:layout_constraintStart_toStartOf="@id/select_address_text"
+            app:layout_constraintTop_toBottomOf="@id/selectDeliverText" />
+
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/add_load_button"
             android:layout_width="match_parent"
@@ -177,7 +207,7 @@
             android:textAllCaps="false"
             android:textColor="@color/button_text"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/area_input" />
+            app:layout_constraintTop_toBottomOf="@id/deliverEditText" />
 
         <ProgressBar
             android:id="@+id/progress_bar"

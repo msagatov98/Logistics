@@ -68,6 +68,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/loading_date_text" />
 
+    <TextView
+        android:id="@+id/deliverPriceTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Price"
+        android:textColor="#102655"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/deliverImageView"
+        app:layout_constraintTop_toBottomOf="@id/loading_date_text" />
+
     <ImageView
         android:id="@+id/type_icon"
         android:layout_width="wrap_content"
@@ -89,6 +101,25 @@
         android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@id/type_icon"
         app:layout_constraintTop_toBottomOf="@id/price_text" />
+
+    <ImageView
+        android:id="@+id/deliverImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_express_delivery"
+        app:layout_constraintStart_toStartOf="@id/area_icon"
+        app:layout_constraintTop_toTopOf="@id/type_icon" />
+
+    <TextView
+        android:id="@+id/deliverTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="Компания доставщик"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@id/deliverImageView"
+        app:layout_constraintTop_toTopOf="@id/deliverImageView" />
 
     <ImageView
         android:id="@+id/weight_icon"

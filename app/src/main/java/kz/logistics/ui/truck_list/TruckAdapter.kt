@@ -33,10 +33,13 @@ class TruckAdapter(
             addressFromText.text = truck.originAddress
             addressToText.text = truck.destAddress
             loadingDateText.text = "Погрузка: ${truck.loadingDate}"
-            priceText.text = "Цена: ${truck.price}"
+            priceText.text = "Цена груза: ${truck.price}"
             typeText.text = truck.good
-            weightText.text = truck.weight.toString() + " t."
-            areaText.text = truck.area.toString() + " m3"
+            weightText.text = "${truck.weight} t."
+            areaText.text = "${truck.area} m3"
+            deliverTextView.text = truck.deliver?.name.orEmpty()
+            deliverPriceTextView.text = "Цена доставки: ${(truck.weight.toLong() * (truck.deliver?.price ?: 0))}"
+            truck.deliver?.imageResId?.let(deliverImageView::setImageResource)
             deleteImageView.setOnClickListener {
                 onDeleteClicked(truck)
             }

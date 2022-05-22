@@ -6,8 +6,15 @@
         <entry key="..\:/Users/Adilnur/StudioProjects/Logistics/app/src/main/res/drawable/bg_button.xml" value="0.275" />
         <entry key="..\:/Users/Adilnur/StudioProjects/Logistics/app/src/main/res/drawable/bg_input_edit_text.xml" value="0.275" />
         <entry key="..\:/Users/Adilnur/StudioProjects/Logistics/app/src/main/res/drawable/bg_input_error_edit_text.xml" value="0.275" />
+        <entry key="..\:/Users/Adilnur/StudioProjects/Logistics/app/src/main/res/drawable/bg_rounded_corder.xml" value="0.275" />
         <entry key="..\:/Users/Adilnur/StudioProjects/Logistics/app/src/main/res/drawable/bg_truck.xml" value="0.275" />
+        <entry key="..\:/Users/Adilnur/StudioProjects/Logistics/app/src/main/res/drawable/ic_dhl_express.xml" value="0.275" />
+        <entry key="..\:/Users/Adilnur/StudioProjects/Logistics/app/src/main/res/drawable/ic_dhl_express_small.xml" value="0.275" />
+        <entry key="..\:/Users/Adilnur/StudioProjects/Logistics/app/src/main/res/drawable/ic_express_delivery.xml" value="0.275" />
+        <entry key="..\:/Users/Adilnur/StudioProjects/Logistics/app/src/main/res/drawable/ic_fedex_express_6.xml" value="0.275" />
+        <entry key="..\:/Users/Adilnur/StudioProjects/Logistics/app/src/main/res/drawable/ic_fedex_express_6_small.xml" value="0.275" />
         <entry key="..\:/Users/Adilnur/StudioProjects/Logistics/app/src/main/res/layout/add_truck_page.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Adilnur/StudioProjects/Logistics/app/src/main/res/layout/delivers_fragment.xml" value="0.5" />
         <entry key="..\:/Users/Adilnur/StudioProjects/Logistics/app/src/main/res/layout/login_page.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Adilnur/StudioProjects/Logistics/app/src/main/res/layout/map_page.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Adilnur/StudioProjects/Logistics/app/src/main/res/layout/navigation_app_bar.xml" value="0.36666666666666664" />

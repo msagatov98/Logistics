@@ -9,6 +9,7 @@ import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.launch
+import kz.logistics.model.Deliver
 import kz.logistics.model.Load
 import java.util.*
 
@@ -24,6 +25,7 @@ class AddTruckViewModel(
     private val weight = MutableStateFlow("")
     private val origin = MutableStateFlow("")
     private val destination = MutableStateFlow("")
+    private val deliver = MutableStateFlow<Deliver?>(null)
 
     val event = MutableSharedFlow<AddTruckAction>()
     val loading = MutableStateFlow(false)
@@ -36,7 +38,7 @@ class AddTruckViewModel(
         origin,
         destination
     ) { array ->
-        array.size == array.map { it.isNotEmpty() }.size
+        array.size == array.map { it.isEmpty() }.size
     }
 
     fun inputPrice(value: Editable?) {
@@ -67,6 +69,10 @@ class AddTruckViewModel(
         destination.value = value
     }
 
+    fun selectDeliver(value: Deliver) {
+        deliver.value = value
+    }
+
     fun onAddLoadClicked() {
         loading.value = true
         val load = Load(
@@ -76,7 +82,8 @@ class AddTruckViewModel(
             price = price.value,
             good = good.value,
             weight = weight.value,
-            area = area.value
+            area = area.value,
+            deliver = deliver.value
         )
 
         val random = Random().nextInt(9999999).toString()

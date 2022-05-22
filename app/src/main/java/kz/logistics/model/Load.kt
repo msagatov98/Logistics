@@ -7,5 +7,6 @@ data class Load(
     val price: String = "",
     val good: String = "",
     val weight: String = "",
-    val area: String = ""
+    val area: String = "",
+    val deliver: Deliver? = null
 )

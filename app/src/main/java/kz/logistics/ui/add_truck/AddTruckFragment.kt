@@ -7,11 +7,14 @@ import androidx.appcompat.app.AlertDialog
 import androidx.core.view.isVisible
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.setFragmentResultListener
 import androidx.navigation.Navigation
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.redmadrobot.inputmask.MaskedTextChangedListener
 import kz.logistics.R
 import kz.logistics.databinding.AddTruckPageBinding
+import kz.logistics.model.Deliver
+import kz.logistics.ui.delivers.DeliversFragment
 import kz.logistics.util.Util.hideKeyboard
 import kz.logistics.util.collect
 import kz.logistics.util.doOnItemSelected
@@ -51,6 +54,16 @@ class AddTruckFragment : Fragment(R.layout.add_truck_page) {
             it.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             originAddressSpinner.adapter = it
             destinationAddressSpinner.adapter = it
+        }
+        deliverEditText.setOnClickListener {
+            DeliversFragment().show(parentFragmentManager, null)
+        }
+        setFragmentResultListener(DeliversFragment.RESULT_DELIVER) { _, bundle ->
+            bundle.getParcelable<Deliver>(DeliversFragment.BUNDLE_DELIVER)?.let {
+                viewModel.selectDeliver(it)
+                deliverEditText.setText(it.name)
+                deliverEditText.setCompoundDrawablesWithIntrinsicBounds(it.imageResId, 0, 0, 0)
+            }
         }
     }
 
