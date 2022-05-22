@@ -1,14 +1,14 @@
-package kz.logistics.ui.fragment
+package kz.logistics.ui.profile
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import by.kirich1409.viewbindingdelegate.viewBinding
 import kz.logistics.App
 import kz.logistics.R
-import kz.logistics.util.Util.viewBinding
 import kz.logistics.databinding.ProfilePageBinding
-import kz.logistics.ui.activity.LoginActivity
+import kz.logistics.ui.login.LoginActivity
 
 class ProfileFragment : Fragment(R.layout.profile_page) {
 

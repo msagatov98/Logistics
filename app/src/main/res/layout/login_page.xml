@@ -4,20 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <FrameLayout
-        android:id="@+id/progress_layout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone">
-
-        <ProgressBar
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center" />
-
-    </FrameLayout>
-
-
     <ImageView
         android:id="@+id/app_logo"
         android:layout_width="wrap_content"
@@ -28,13 +14,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
     <EditText
         android:id="@+id/input_email"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
+        android:layout_marginHorizontal="24dp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/bg_input_edit_text"
         android:hint="Email"
@@ -45,11 +29,9 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/password_input_layout"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="24dp"
         app:hintEnabled="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -58,11 +40,11 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/password_input_edit_text"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_input_edit_text"
             android:hint="Пароль"
             android:inputType="textPassword"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp" />
+            android:paddingHorizontal="16dp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.appcompat.widget.AppCompatButton
@@ -86,5 +68,18 @@
         android:gravity="center"
         android:text="Нет аккаунта? Регистрация"
         app:layout_constraintBottom_toBottomOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/progress_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center" />
+
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

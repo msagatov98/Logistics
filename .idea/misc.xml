@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Adilnur/StudioProjects/Logistics/app/src/main/res/drawable/bg_button.xml" value="0.275" />
+        <entry key="..\:/Users/Adilnur/StudioProjects/Logistics/app/src/main/res/drawable/bg_input_edit_text.xml" value="0.275" />
+        <entry key="..\:/Users/Adilnur/StudioProjects/Logistics/app/src/main/res/layout/add_truck_page.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Adilnur/StudioProjects/Logistics/app/src/main/res/layout/login_page.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Adilnur/StudioProjects/Logistics/app/src/main/res/layout/map_page.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Adilnur/StudioProjects/Logistics/app/src/main/res/layout/navigation_app_bar.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Adilnur/StudioProjects/Logistics/app/src/main/res/layout/navigation_page.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/Adilnur/StudioProjects/Logistics/app/src/main/res/layout/profile_page.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Adilnur/StudioProjects/Logistics/app/src/main/res/layout/registration_page.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Adilnur/StudioProjects/Logistics/app/src/main/res/layout/truck_page.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Adilnur/StudioProjects/Logistics/app/src/main/res/layout/truck_view_holder.xml" value="0.36666666666666664" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>

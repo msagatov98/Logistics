@@ -9,7 +9,8 @@
         android:name="kz.logistics.ui.fragment.TruckFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/gray" />
+        android:background="@color/gray"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/add_truck_button"

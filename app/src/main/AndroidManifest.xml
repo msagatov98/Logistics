@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="kz.logistics">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
@@ -32,7 +31,7 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity android:name=".ui.activity.SplashActivity" android:theme="@style/Splash"
+        <activity android:name=".ui.splash.SplashActivity" android:theme="@style/Splash"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -40,9 +39,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.activity.LoginActivity" />
-        <activity android:name=".ui.activity.RegistrationActivity" android:windowSoftInputMode="adjustResize|stateHidden"/>
-        <activity android:name=".ui.activity.NavigationActivity" android:theme="@style/Theme.Logistics.NoActionBar" />
+        <activity android:name=".ui.login.LoginActivity" />
+        <activity android:name=".ui.registration.RegistrationActivity" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name=".ui.navigation.NavigationActivity" android:theme="@style/Theme.Logistics.NoActionBar" />
     </application>
 
 </manifest>

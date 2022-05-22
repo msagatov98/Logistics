@@ -9,6 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="gone">
+
         <ProgressBar
             android:layout_width="50dp"
             android:layout_height="50dp"
@@ -16,15 +17,15 @@
     </FrameLayout>
 
     <TextView
-        android:textSize="16sp"
-        android:textColor="@color/black"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="50dp"
-        android:text="Введите ваш электронный адрес и пароль для регистрации. Пароль не меньше 6 символов"
         android:gravity="center"
+        android:text="Введите ваш электронный адрес и пароль для регистрации. Пароль не меньше 6 символов"
+        android:textColor="@color/black"
+        android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@id/input_email" />
 
 
@@ -46,7 +47,7 @@
         android:id="@+id/password_input_layout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
         android:hint="Пароль"
@@ -58,7 +59,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/password_input_edit_text"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_input_edit_text"
             android:hint="Пароль"
             android:inputType="textPassword"
             android:paddingStart="16dp"
@@ -69,7 +71,7 @@
         android:id="@+id/confirm_password_input_layout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="30dp"
@@ -81,6 +83,7 @@
             android:id="@+id/confirm_password_input_edit_text"
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:background="@drawable/bg_input_edit_text"
             android:hint="Повторите пароль"
             android:inputType="textPassword"
             android:paddingStart="16dp"
